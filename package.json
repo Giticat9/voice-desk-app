@@ -1,14 +1,40 @@
 {
   "name": "voice-desc-app",
+  "description": "electron voice desktop application",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:electron": "cross-env NODE_ENV=development webpack --config ./webpack/webpack.electron.config.ts --mode development && electron .",
+    "dev:react": "cross-env NODE_ENV=development webpack serve --config ./webpack/webpack.react.config.ts --mode development"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": {
+    "name": "Zhuravlev Ivan",
+    "email": "giticat9@gmail.com"
+  },
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^32.2.0"
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-react": "^7.25.7",
+    "@babel/preset-typescript": "^7.25.7",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "babel-loader": "^9.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^32.2.0",
+    "html-webpack-plugin": "^5.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^6.27.0",
+    "react-router-dom": "^6.27.0"
   }
 }
