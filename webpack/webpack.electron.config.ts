@@ -11,7 +11,7 @@ const webpackElectronConfig: webpack.Configuration & webpackDevServer.Configurat
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['.ts', '.tsx'],
+        extensions: ['.ts', '.tsx', '.js'],
     },
     devtool: 'source-map',
     module: {

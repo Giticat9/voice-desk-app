@@ -3,10 +3,7 @@ import webpack from "webpack";
 import webpackDevServer from "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
-console.log(path.resolve(__dirname, '..', 'src', 'template', 'index.html'));
-
 const webpackReactConfig: webpack.Configuration & webpackDevServer.Configuration = {
-    target: 'electron-renderer',
     entry: path.resolve(__dirname, '..', 'src', 'app', 'index.tsx'),
     output: {
         path: path.resolve(__dirname, '..', 'dist', 'renderer'),
@@ -23,6 +20,10 @@ const webpackReactConfig: webpack.Configuration & webpackDevServer.Configuration
         compress: true,
         hot: true,
         port: 4000,
+        static: {
+            directory: path.resolve(__dirname, '..', 'assets'),
+            publicPath: '/assets/'
+        }
     },
     module: {
         rules: [
@@ -33,12 +34,17 @@ const webpackReactConfig: webpack.Configuration & webpackDevServer.Configuration
                     loader: 'babel-loader',
                 },
             },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '..', 'src', 'template', 'index.html'),
             inject: 'body',
+
         }),
     ],
 }
