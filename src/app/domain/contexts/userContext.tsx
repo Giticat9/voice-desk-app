@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 
-export interface UserContextProps {
-}
+export interface UserContextProps {}
 
 const initialContextValues: UserContextProps = {};
 
